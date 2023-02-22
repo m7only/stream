@@ -13,6 +13,11 @@ public class Main {
                                       BiConsumer<? super T, ? super T> minMaxConsumer) {
 //        Напишите метод findMinMax, находящий в стриме минимальный
 //        и максимальный элементы в соответствии порядком, заданным Comparator'ом.
+//        Найденные минимальный и максимальный элементы передайте в minMaxConsumer следующим образом:
+//        minMaxConsumer.accept(min, max);
+//        Если стрим не содержит элементов, то вызовите
+//        minMaxConsumer.accept(null, null);
+
         minMaxConsumer.accept(
                 stream.min(order).orElse(null),
                 stream.max(order).orElse(null)
