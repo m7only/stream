@@ -15,13 +15,15 @@ public class Main {
                     add(5);
                     add(6);
                     add(7);
-                }}.stream(), new Comparator<Integer>() {
+                }}.stream(),
+                new Comparator<Integer>() {
                     @Override
                     public int compare(Integer o1, Integer o2) {
                         if (o1.equals(o2)) return 0;
                         return o1 > o2 ? 1 : -1;
                     }
-                }, new BiConsumer<Integer, Integer>(){
+                },
+                new BiConsumer<Integer, Integer>(){
                     @Override
                     public void accept(Integer integer, Integer integer2) {
                         System.out.println("min: " + integer);
