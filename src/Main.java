@@ -30,6 +30,7 @@ public class Main {
 //        Решать именно с применением Stream API
         return list.stream()
                 .filter(i -> i % 2 == 0)
+                .peek(System.out::println)
                 .count();
     }
 }
