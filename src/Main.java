@@ -17,10 +17,10 @@ public class Main {
 //        minMaxConsumer.accept(min, max);
 //        Если стрим не содержит элементов, то вызовите
 //        minMaxConsumer.accept(null, null);
-
+        List<? extends T> list = stream.toList();
         minMaxConsumer.accept(
-                stream.min(order).orElse(null),
-                stream.max(order).orElse(null)
+                list.stream().min(order).orElse(null),
+                list.stream().max(order).orElse(null)
         );
     }
 
