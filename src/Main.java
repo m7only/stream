@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -5,7 +6,29 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-
+        findMinMax(
+                new ArrayList<Integer>() {{
+                    add(1);
+                    add(2);
+                    add(3);
+                    add(4);
+                    add(5);
+                    add(6);
+                    add(7);
+                }}.stream(), new Comparator<Integer>() {
+                    @Override
+                    public int compare(Integer o1, Integer o2) {
+                        if (o1.equals(o2)) return 0;
+                        return o1 > o2 ? 1 : -1;
+                    }
+                }, new BiConsumer<Integer, Integer>(){
+                    @Override
+                    public void accept(Integer integer, Integer integer2) {
+                        System.out.println("min: " + integer);
+                        System.out.println("max: " + integer2);
+                    }
+                }
+        );
     }
 
     public static <T> void findMinMax(Stream<? extends T> stream,
